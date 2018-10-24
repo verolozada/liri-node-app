@@ -10,11 +10,24 @@
     "type": "git",
     "url": "git+https://github.com/verolozada/liri-node-app.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "liri",
+    "siri",
+    "spotify",
+    "bands in town",
+    "OMDb"
+  ],
+  "author": "Veronica Lozada",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/verolozada/liri-node-app/issues"
   },
-  "homepage": "https://github.com/verolozada/liri-node-app#readme"
+  "homepage": "https://github.com/verolozada/liri-node-app#readme",
+  "dependencies": {
+    "dotenv": "^6.1.0",
+    "fs": "0.0.1-security",
+    "moment": "^2.22.2",
+    "node-spotify-api": "^1.0.7",
+    "request": "^2.88.0"
+  }
 }
