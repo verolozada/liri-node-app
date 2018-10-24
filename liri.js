@@ -37,16 +37,16 @@ spotify.search({
 }
 
 
-// request("https://rest.bandsintown.com/artists/" + queryName + "/events?app_id=codingbootcamp", function (error, response, body) {
-// //   console.log(JSON.parse(body));
-//   var data = JSON.parse(body);
-//   console.log(moment(data[0].datetime).format("MM/DD/YYYY"));
-// });
+request("https://rest.bandsintown.com/artists/" + queryName + "/events?app_id=codingbootcamp", function (error, response, body) {
+//   console.log(JSON.parse(body));
+  var data = JSON.parse(body);
+  console.log(moment(data[0].datetime).format("MM/DD/YYYY"));
+});
 
 
-// request("http://www.omdbapi.com/?t=" + queryName + "&y=&plot=short&" + keys.OMDb.link, function (error, response, body) {
-//   console.log('error:', error); // Print the error if one occurred
-//   console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-//   console.log('body:', body); // Print the HTML for the Google homepage.
-// });
+request("http://www.omdbapi.com/?t=" + queryName + "&y=&plot=short&" + keys.OMDb.link, function (error, response, body) {
+  console.log('error:', error); // Print the error if one occurred
+  console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
+  console.log('body:', body); // Print the HTML for the Google homepage.
+});
 
