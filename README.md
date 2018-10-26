@@ -12,7 +12,7 @@
 
 * To read it from an external file in this case the random.txt file just use do-what-it-says. 
 
-#### Example video: [a link](https://drive.google.com/file/d/1TQhs6up4e-JeaVafFDouASxaiapbxJkt/view)
+#### Example video: [Video link](https://drive.google.com/file/d/1VEJ5osBCpYcaawoDNoJ7OlFjokSy_8qJ/view)
 
 
 
