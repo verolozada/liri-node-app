@@ -9,23 +9,36 @@ const [, , command, ...args] = process.argv
 let queryName = args.join(" ");
 const spotify = new Spotify(keys.spotify);
 
-if (command === "spotify-this-song") {
-    if (queryName === "") {
-        queryName = "The Sing Ace of Base"
-    }
-    song();
+
+switch (command) {
+    case "spotify-this-song":
+        song();
+        break;
+    case "concert-this":
+        concert();
+        break;
+    case "movie-this":
+        movie();
+        break;
 }
 
-if (command === "concert-this") {
-    concert();
-}
+// if (command === "spotify-this-song") {
+//     if (queryName === "") {
+//         queryName = "The Sing Ace of Base"
+//     }
+//     song();
+// }
 
-if (command === "movie-this") {
-    if (queryName === "") {
-        queryName = "Mr.Nobody"
-    }
-    movie();
-}
+// if (command === "concert-this") {
+//     concert();
+// }
+
+// if (command === "movie-this") {
+//     if (queryName === "") {
+//         queryName = "Mr.Nobody"
+//     }
+//     movie();
+// }
 
 if (command === "do-what-it-says") {
     fs.readFile("random.txt", "utf8", function (error, data) {
