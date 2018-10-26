@@ -5,10 +5,9 @@ const Spotify = require('node-spotify-api');
 const request = require("request");
 const moment = require("moment");
 const fs = require("fs");
-const [, , command, ...args] = process.argv
+let [, , command, ...args] = process.argv
 let queryName = args.join(" ");
 const spotify = new Spotify(keys.spotify);
-
 
 switch (command) {
     case "spotify-this-song":
@@ -20,37 +19,37 @@ switch (command) {
     case "movie-this":
         movie();
         break;
+    case "do-what-it-says":
+        doWhat();
+        break;
 }
 
-// if (command === "spotify-this-song") {
-//     if (queryName === "") {
-//         queryName = "The Sing Ace of Base"
-//     }
-//     song();
-// }
-
-// if (command === "concert-this") {
-//     concert();
-// }
-
-// if (command === "movie-this") {
-//     if (queryName === "") {
-//         queryName = "Mr.Nobody"
-//     }
-//     movie();
-// }
-
-if (command === "do-what-it-says") {
+function doWhat() {
     fs.readFile("random.txt", "utf8", function (error, data) {
         if (error) {
             return console.log(error);
         }
-        queryName = data.toString();
-        song();
+        const data1 = data.split(", ")
+        command = data1[0];
+        queryName = data1[1];
+        switch (command) {
+            case "spotify-this-song":
+                song();
+                break;
+            case "concert-this":
+                concert();
+                break;
+            case "movie-this":
+                movie();
+                break;
+        }
     });
 }
 
 function movie() {
+    if (queryName === "") {
+        queryName = "Mr.Nobody"
+    }
     request("http://www.omdbapi.com/?t=" + queryName + "&y=&plot=short&" + keys.OMDb.link, function (error, response, body) {
         var data = JSON.parse(body);
         console.log(`Title of the movie: ${data.Title}`);
@@ -74,6 +73,9 @@ function concert() {
 }
 
 function song() {
+    if (queryName === "") {
+        queryName = "The Sing Ace of Base"
+    }
     spotify.search({
         type: 'track',
         query: queryName
